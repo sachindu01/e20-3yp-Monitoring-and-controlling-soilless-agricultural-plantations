@@ -11,7 +11,7 @@ title: A Modular Soilless Farming System for Sustainable Growth
 
 # Plant-Pulse
 
-![Plant pulse](images/logofinal.jpeg)
+![Plant pulse](images/logo_final.png)
 
 ---
 
@@ -30,7 +30,7 @@ title: A Modular Soilless Farming System for Sustainable Growth
 #### Table of Contents
 1. [Introduction](#introduction)
 2. [Solution Architecture](#solution-architecture )
-3. [Hardware & Software Designs](#hardware-and-software-designs)
+3. [Data Path](#Data-path)
 4. [Testing](#testing)
 5. [Detailed budget](#detailed-budget)
 6. [Conclusion](#conclusion)
@@ -54,15 +54,14 @@ With live updates and full control accessible through our mobile application, ur
 ![Data path](images/data_path.jpeg)
 
 
-Detailed designs with many sub-sections
 
 ## Testing
 
-Testing done on hardware and software, detailed + summarized results
+ToDo: About to implemnt details about testings
 
 ## Detailed budget
 
-All items and costs
+
 
 | Item                                | Quantity | Unit Cost (LKR) | Total (LKR) |  
 |-------------------------------------|:--------:|:---------------:|------------:|  
@@ -80,12 +79,12 @@ All items and costs
 
 ## Conclusion
 
-What was achieved, future developments, commercialization plans
+ToDo: What was achieved, future developments, commercialization plans
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/{{ page.repository-name }}){:target="_blank"}
-- [Project Page](https://cepdnaclk.github.io/{{ page.repository-name}}){:target="_blank"}
+- [Project Repository](https://github.com/cepdnaclk/e20-3yp-Monitoring-and-controlling-soilless-agricultural-plantations)
+- [Project Page](http://project11968591.tilda.ws/)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 

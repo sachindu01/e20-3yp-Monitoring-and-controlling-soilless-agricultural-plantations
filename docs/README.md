@@ -30,7 +30,7 @@ title: A Modular Soilless Farming System for Sustainable Growth
 #### Table of Contents
 1. [Introduction](#introduction)
 2. [Solution Architecture](#solution-architecture )
-3. [Data Path](#Data-path)
+3. [Data Path](#Data-Path)
 4. [Testing](#testing)
 5. [Detailed budget](#detailed-budget)
 6. [Conclusion](#conclusion)

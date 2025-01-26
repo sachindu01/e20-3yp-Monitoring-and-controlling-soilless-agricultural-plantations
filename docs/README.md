@@ -46,9 +46,12 @@ With live updates and full control accessible through our mobile application, ur
 
 ## Solution Architecture
 
+![Solution Architecture](images/solution_archi.jpeg)
 
+## Data Path
 
-## Hardware and Software Designs
+![Data path](images/data_path.jpeg)
+
 
 Detailed designs with many sub-sections
 

@@ -1,29 +1,40 @@
 {
     "team": [
         {
-            "name": "Team Member Name 1",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "Tharusha Haththella",
+            "email": "e20133@eng.pdn.ac.lk",
+            "eNumber": "E/20/133"
         },
         {
-            "name": "Team Member Name 2",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "Sachindu Premasiri",
+            "email": "e20305@eng.pdn.ac.lk",
+            "eNumber": "E/20/305"
         },
         {
-            "name": "Team Member Name 3",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx"
+            "name": "Nimesha Somathilaka",
+            "email": "e20381@eng.pdn.ac.lk",
+            "eNumber": "E/20/381"
+        }
+        {
+            "name": "Devin Sriyarathna",
+            "email": "e20385@eng.pdn.ac.lk",
+            "eNumber": "E/20/385"
         }
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk"
+            "name": "Dr. Isuru Nawinne",
+            "email": "isurunawinne@eng.pdn.ac.lk"
         },
         {
-            "name": "Supervisor 2",
-            "email": "email@eng.pdn.ac.lk"
+            "name": "Mr. Biswajith Dissanayake",
+            "email": "biswajithd@eng.pdn.ac.lk"
+        }
+    ],
+    "Instructors": [
+        {
+            "name": "Saadia Jameel",
+            "email": "e18147@eng.pdn.ac.lk"
         }
     ],
     "tags": ["Web", "Embedded Systems"]

@@ -11,8 +11,8 @@ title: A Modular Soilless Farming System for Sustainable Growth
 
 # Plant-Pulse
 
-<!-- ![Plant pulse](images/logo_final.png) -->
-
+<!--  -->
+![Plant pulse](images/plant_pulse.png)
 ---
 
 ## Team

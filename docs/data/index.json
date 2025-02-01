@@ -31,11 +31,6 @@
             "email": "biswajithd@eng.pdn.ac.lk"
         }
     ],
-    "Instructors": [
-        {
-            "name": "Saadia Jameel",
-            "email": "e18147@eng.pdn.ac.lk"
-        }
-    ],
+
     "tags": ["Web", "Embedded Systems"]
 }

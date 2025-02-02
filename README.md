@@ -60,5 +60,5 @@ With live updates and full control accessible through our mobile application, ur
 - [Project Repository](https://github.com/cepdnaclk/e20-3yp-Monitoring-and-controlling-soilless-agricultural-plantations)
 - [Project Page](https://sachindu01.github.io/PP/)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
-- [University of Peradeniya](https://eng.pdn.ac.lk/)
+- [University of Peradeniya](https://eng.pdn.ac.lk/) 
 

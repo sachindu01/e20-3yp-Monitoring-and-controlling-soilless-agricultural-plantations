@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import SplashScreen from './app/screens/splashscreen'; // Added Splash Screen
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import LoginScreen from './app/screens/LoginScreen';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
-import HomeScreen from './app/screens/HomeScreen'; // The screen with bottom tab navigation
+import HomeScreen from './app/screens/HomeScreen'; // Bottom Tab Navigation
 import DashboardScreen from './app/screens/DashboardScreen';
 import LandingScreen from './app/screens/LandingScreen';
 import PlantationsScreen from './app/screens/PlantationsScreen';
@@ -18,10 +19,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="Splash" // Changed to start with Splash Screen
         screenOptions={{
           animation: 'slide_from_right', // Smooth transition
         }}
       >
+        {/* NEW: Added Splash Screen as the first screen */}
+        <Stack.Screen 
+          name="Splash" 
+          component={SplashScreen} 
+          options={{ headerShown: false }} 
+        />
+
         <Stack.Screen 
           name="Welcome" 
           component={WelcomeScreen} 
@@ -58,20 +67,17 @@ export default function App() {
           options={{ headerShown: false }} 
         />
 
-        {/* HomeScreen now becomes the root screen with BottomTabNavigation */}
         <Stack.Screen 
           name="Home" 
           component={HomeScreen} 
           options={{ headerShown: false }} 
         />
 
-        {/* Other screens that don't require Bottom Tab Navigation */}
         <Stack.Screen 
           name="Dashboard" 
           component={DashboardScreen} 
           options={{ headerShown: false }} 
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

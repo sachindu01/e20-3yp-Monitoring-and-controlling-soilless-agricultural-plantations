@@ -19,7 +19,7 @@ function WelcomeScreen({ navigation }) {
         >   
             {/* Logo & Tagline */}
             <View style={styles.logoContainer}>
-                <Image style={styles.logo} source={require('../assets/PlantPulselogo.png')} />
+                {/* <Image style={styles.logo} source={require('../assets/PlantPulselogowhite.png')} /> */}
                 <Text style={styles.title}>Welcome to PlantPulse</Text>
                 <Text style={styles.subtitle}>Revolutionizing Agriculture</Text>
             </View>
@@ -27,10 +27,10 @@ function WelcomeScreen({ navigation }) {
             {/* Action Buttons */}
             <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('Login')}>
-                <Text style={styles.buttonText}>Login</Text>
+                <Text style={styles.buttonText1}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.registerButton} onPress={() => navigation.navigate('Register')}>
-                <Text style={styles.buttonText}>Register</Text>
+                <Text style={styles.buttonText2}>Register</Text>
             </TouchableOpacity>
 
             </View>
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     logo: {
-        width: 120,
-        height: 120,
+        width: 150,
+        height: 150,
         marginBottom: 10,
     },
     title: {
-        fontSize: 28,
+        fontSize: 50,
         fontWeight: 'bold',
         color: '#fff',
         textAlign: 'center',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     loginButton: {
-        backgroundColor: COLORS.green,
+        backgroundColor: COLORS.dark,
         paddingVertical: 15,
         borderRadius: 10,
         alignItems: 'center',
@@ -82,14 +82,19 @@ const styles = StyleSheet.create({
         marginRight: 10, // Adds spacing between buttons
     },
     registerButton: {
-        backgroundColor: '#4ecdc4',
+        backgroundColor: COLORS.white,
         paddingVertical: 15,
         borderRadius: 10,
         alignItems: 'center',
         flex: 1, // Allow equal width for both buttons
     },
-    buttonText: {
+    buttonText1: {
         color: '#fff',
+        fontSize: 18,
+        fontWeight: '600',
+    },
+    buttonText2: {
+        color: COLORS.dark,
         fontSize: 18,
         fontWeight: '600',
     }

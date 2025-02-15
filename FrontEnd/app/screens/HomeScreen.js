@@ -3,11 +3,13 @@ import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import DashboardScreen from './DashboardScreen'; // Define these screens
-import UserScreen from './UserScreen'; // Define these screens
-import PlantationsScreen from './PlantationsScreen'; // Define these screens
-import COLORS from '../config/colors'; // Ensure you import the COLORS file
+import DashboardScreen from './DashboardScreen';
+import UserScreen from './UserScreen';
+import PlantationsScreen from './PlantationsScreen';
+import DevicesScreen from './DeviceScreen'; // Import the Devices screen
+import COLORS from '../config/colors';
 import LandingScreen from './LandingScreen';
+import AlertScreen from './AlertScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,11 +41,30 @@ const HomeScreen = () => {
         }}
       />
       <Tab.Screen
-        name="Plantrations"
+        name="Plantations"
         component={LandingScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="local-florist" size={30} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Devices"
+        component={DevicesScreen} // Add the new DevicesScreen
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="devices" size={30} color={color} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Alerts"
+        component={AlertScreen} // Add the new Alerts
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="home" size={30} color={color} />
           ),
         }}
       />

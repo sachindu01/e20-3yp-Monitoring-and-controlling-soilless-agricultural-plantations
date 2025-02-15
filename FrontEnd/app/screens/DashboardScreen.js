@@ -1,10 +1,32 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
 import { Text, Card } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { LineChart } from 'react-native-chart-kit';
 import COLORS from '../config/colors';
 
 export default function DashboardScreen({ navigation }) {
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulated data for multiple readings
+    setTimeout(() => {
+      const newData = {
+        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        datasets: [
+          { data: [20, 21, 22, 23, 22, 21, 24], label: "Temperature (°C)" },
+          { data: [50, 55, 53, 57, 56, 54, 58], label: "Humidity (%)" },
+        ],
+      };
+      setChartData(newData);
+      setLoading(false);
+    }, 1000); // Simulate a network delay
+  }, []);
+  // // Extract latest readings from the chart data
+  // const getLatestReading = (index) => {
+  //   return chartData?.datasets[index]?.data.slice(-1)[0] || "N/A";
+  // };
 
   const getStatusColor = (value) => {
     if (value === 'Optimal' || value === '22°C') {
@@ -17,13 +39,38 @@ export default function DashboardScreen({ navigation }) {
   };
 
   return (
+    
     <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.chartContainer}>
+        {loading ? (
+          <ActivityIndicator size="large" color={COLORS.green} />
+        ) : (
+          <LineChart
+            data={chartData}
+            width={Dimensions.get("window").width - 40}
+            height={220}
+            yAxisSuffix=""
+            chartConfig={{
+              backgroundGradientFrom: "#fff",
+              backgroundGradientTo: "#fff",
+              decimalPlaces: 1,
+              color: (opacity = 1) => `rgba(0, 128, 0, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              style: { borderRadius: 16 },
+              propsForDots: { r: "6", strokeWidth: "2", stroke: COLORS.green },
+            }}
+            bezier
+            style={{ marginVertical: 8, borderRadius: 16 }}
+          />
+        )}
+      </View>
+
       
-      {/* Header with Back Arrow and Title */}
+      {/* Header with Back Arrow and Title
       <View style={styles.header}>
         <Icon name="arrow-back" size={28} color="#fff" onPress={() => navigation.goBack()} />
         <Text style={styles.title}>Dashboard</Text>
-      </View>
+      </View> */}
 
       {/* Cards Grid */}
       <View style={styles.gridContainer}>
@@ -88,6 +135,14 @@ export default function DashboardScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  chartContainer: {
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 20,
+    elevation: 5,
+  },
+  
   container: {
     flexGrow: 1,
     backgroundColor: COLORS.lightGreen,  // Set background color to light green
@@ -130,13 +185,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardTitle: {
-    fontSize: 18,
+    fontSize: 21,
     fontWeight: 'bold',
     color: COLORS.green,  // Use green color for title
     marginTop: 5,
   },
   cardText: {
-    fontSize: 16,
+    fontSize: 19,
     color: '#555',
     marginTop: 3,
     flexDirection: 'row',

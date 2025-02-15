@@ -7,6 +7,9 @@ const UserScreen = ({ navigation }) => {
   // State to hold user information
   const [name, setName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
+  const [phone, setPhone] = useState('123-456-7890');
+  const [address, setAddress] = useState('123 Main St, Cityville');
+  const [bio, setBio] = useState('A passionate developer');
   const [isEditing, setIsEditing] = useState(false);
 
   // Use a local image from the assets folder
@@ -50,6 +53,33 @@ const UserScreen = ({ navigation }) => {
         ) : (
           <Text style={styles.text}>{email}</Text>
         )}
+
+        <Text style={styles.label}>Phone:</Text>
+        {isEditing ? (
+          <TextInput style={styles.input} value={phone} onChangeText={setPhone} />
+        ) : (
+          <Text style={styles.text}>{phone}</Text>
+        )}
+
+        <Text style={styles.label}>Address:</Text>
+        {isEditing ? (
+          <TextInput style={styles.input} value={address} onChangeText={setAddress} />
+        ) : (
+          <Text style={styles.text}>{address}</Text>
+        )}
+
+        <Text style={styles.label}>Bio:</Text>
+        {isEditing ? (
+          <TextInput
+            style={styles.input}
+            value={bio}
+            onChangeText={setBio}
+            multiline
+            numberOfLines={4}
+          />
+        ) : (
+          <Text style={styles.text}>{bio}</Text>
+        )}
       </View>
 
       {/* Action Buttons */}
@@ -64,7 +94,6 @@ const UserScreen = ({ navigation }) => {
           <Text style={styles.logoutText}>Log Out</Text>
         </TouchableOpacity>
       </View>
-      
     </View>
   );
 };

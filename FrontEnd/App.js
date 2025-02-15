@@ -12,6 +12,7 @@ import LandingScreen from './app/screens/LandingScreen';
 import PlantationsScreen from './app/screens/PlantationsScreen';
 import UserScreen from './app/screens/UserScreen';
 import DetailsScreen from './app/compononts/PlantDetails';
+import DeviceScreen from './app/screens/DeviceScreen';
 
 const Stack = createStackNavigator();
 
@@ -76,6 +77,12 @@ export default function App() {
         <Stack.Screen 
           name="Dashboard" 
           component={DashboardScreen} 
+          options={{ headerShown: false }} 
+        />
+
+        <Stack.Screen 
+          name="Devices" 
+          component={DeviceScreen} 
           options={{ headerShown: false }} 
         />
       </Stack.Navigator>

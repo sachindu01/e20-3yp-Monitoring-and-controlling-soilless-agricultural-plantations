@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Image } from 'react-native';
 import COLORS from '../config/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -8,6 +8,9 @@ const UserScreen = ({ navigation }) => {
   const [name, setName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
   const [isEditing, setIsEditing] = useState(false);
+
+  // Use a local image from the assets folder
+  const profileImage = require('../assets/profile.jpg');
 
   const handleSave = () => {
     setIsEditing(false);
@@ -21,11 +24,15 @@ const UserScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screenContainer}>
-
       {/* Header with Back Arrow and Title */}
       <View style={styles.header}>
         <Icon name="arrow-back" size={28} onPress={() => navigation.goBack()} />
         <Text style={styles.title}>User Profile</Text>
+      </View>
+
+      {/* Profile Image */}
+      <View style={styles.imageContainer}>
+        <Image source={profileImage} style={styles.profileImage} />
       </View>
 
       {/* User Info Section */}
@@ -80,6 +87,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.green,
     marginLeft: 10, // Adds spacing between the icon and title
+  },
+  imageContainer: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  profileImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60, // Makes it circular
+    borderWidth: 2,
+    borderColor: COLORS.green,
   },
   infoContainer: {
     width: '100%',

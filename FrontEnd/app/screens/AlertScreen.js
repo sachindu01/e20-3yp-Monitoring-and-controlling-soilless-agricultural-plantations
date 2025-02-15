@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import COLORS from '../config/colors';
+
 
 export default function AlertsScreen() {
   const [alerts, setAlerts] = useState([]);
@@ -19,7 +22,7 @@ export default function AlertsScreen() {
       };
       setAlerts((prevAlerts) => [...prevAlerts, newAlert]);
       saveAlerts([...alerts, newAlert]);
-    }, 15000); // Adds a new alert every 15 seconds (for demo)
+    }, 150000); // Adds a new alert every 15 seconds (for demo)
 
     return () => clearInterval(interval);
   }, [alerts]);
@@ -41,7 +44,10 @@ export default function AlertsScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🔔 System Alerts</Text>
+      <View style={styles.header}>
+        
+        <Text style={styles.title}>Alerts</Text>
+      </View>
       <FlatList
         data={alerts}
         keyExtractor={(item) => item.id}
@@ -61,7 +67,12 @@ export default function AlertsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20, backgroundColor: '#E8F5E9' }, // Light green background
-  title: { color: '#333', fontSize: 22, fontWeight: 'bold', marginBottom: 10 }, // Dark text for title
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: COLORS.green,
+    marginLeft: 10, // Adds spacing between the icon and title
+  },
   alertItem: {
     backgroundColor: '#C8E6C9', // Soft green background for alert items
     padding: 15,

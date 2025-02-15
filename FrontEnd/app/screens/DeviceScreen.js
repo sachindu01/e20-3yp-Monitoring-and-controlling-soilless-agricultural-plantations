@@ -3,6 +3,7 @@ import { View, Text, TextInput, FlatList, TouchableOpacity, StyleSheet, Alert } 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
+import COLORS from '../config/colors';
 
 export default function DeviceScreen() {
   const [deviceName, setDeviceName] = useState('');
@@ -29,7 +30,14 @@ export default function DeviceScreen() {
       Alert.alert('Error', 'Device name cannot be empty');
       return;
     }
-    const newDevices = [...devices, { id: Date.now().toString(), name: deviceName }];
+
+    // Create a random or predefined icon for the device
+    const deviceIcon = 'device-thermostat'; // Default icon, can be adjusted per device type
+
+    const newDevices = [
+      ...devices,
+      { id: Date.now().toString(), name: deviceName, icon: deviceIcon },
+    ];
     setDevices(newDevices);
     await AsyncStorage.setItem('devices', JSON.stringify(newDevices));
     setDeviceName('');
@@ -45,10 +53,7 @@ export default function DeviceScreen() {
     <View style={styles.container}>
       {/* Header with Back Arrow and Title */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Icon name="arrow-back" size={28} color="#333" />
-        </TouchableOpacity>
-        <Text style={styles.title}>Devices</Text>
+        <Text style={styles.title}>Manage Devices</Text>
       </View>
 
       <TextInput
@@ -68,6 +73,7 @@ export default function DeviceScreen() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.deviceItem}>
+            <Icon name={item.icon} size={30} color={COLORS.green} style={styles.deviceIcon} />
             <Text style={styles.deviceText}>{item.name}</Text>
             <TouchableOpacity onPress={() => removeDevice(item.id)}>
               <Text style={styles.deleteText}>Remove</Text>
@@ -81,7 +87,12 @@ export default function DeviceScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20, backgroundColor: '#E8F5E9' },
-  title: { color: '#333', fontSize: 22, fontWeight: 'bold', marginLeft: 10 },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: COLORS.green,
+    marginLeft: 10, // Adds spacing between the icon and title
+  },
   header: { flexDirection: 'row', alignItems: 'center', marginBottom: 20 },
   input: {
     height: 50,
@@ -107,9 +118,13 @@ const styles = StyleSheet.create({
   deviceItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 15,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+  },
+  deviceIcon: {
+    marginRight: 10, // Space between the icon and device name
   },
   deviceText: { color: '#333', fontSize: 18 },
   deleteText: { color: 'red', fontSize: 16 },

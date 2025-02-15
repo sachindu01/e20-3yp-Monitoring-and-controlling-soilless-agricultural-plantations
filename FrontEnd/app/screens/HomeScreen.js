@@ -5,7 +5,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import DashboardScreen from './DashboardScreen';
 import UserScreen from './UserScreen';
-import PlantationsScreen from './PlantationsScreen';
 import DevicesScreen from './DeviceScreen'; // Import the Devices screen
 import COLORS from '../config/colors';
 import LandingScreen from './LandingScreen';

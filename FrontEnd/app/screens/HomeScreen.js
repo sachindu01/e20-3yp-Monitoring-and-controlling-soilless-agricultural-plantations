@@ -9,6 +9,7 @@ import DevicesScreen from './DeviceScreen'; // Import the Devices screen
 import COLORS from '../config/colors';
 import LandingScreen from './LandingScreen';
 import AlertScreen from './AlertScreen';
+import PlantationsScreen from './PlantationsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ const HomeScreen = () => {
       />
       <Tab.Screen
         name="Plantations"
-        component={LandingScreen}
+        component={LandingScreen}   // Replace PlantationsScreen with LandingScreen if needed
         options={{
           tabBarIcon: ({ color }) => (
             <Icon name="local-florist" size={30} color={color} />
